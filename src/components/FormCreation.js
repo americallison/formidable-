@@ -1,8 +1,10 @@
 import React from 'react';
+import MainNav from './MainNav';
 
 export default function FormCreation () {
     return (
         <>
+        <MainNav />
             <h1>Formidable Form Creator</h1>
             <input type="text" placeholder="Form Title" /><br />
             <input type="text" placeholder="Form Description" />

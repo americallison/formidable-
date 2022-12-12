@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MainNav from '../MainNav';
 
 export default function Login() {
     return (
         <>
+        <MainNav />
             <h4>Login</h4>
             <input type="text" placeholder="username" /><br />
             <input type="text" placeholder="password" />
