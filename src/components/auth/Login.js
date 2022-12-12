@@ -5,6 +5,7 @@ export default function Login() {
         <>
             <h4>Login</h4>
             <input type="text" placeholder="username" />
+            <input type="text" placeholder="password" />
         </>
     )
 }
