@@ -12,9 +12,9 @@ export default function Login() {
                 <input className="form-control" type="text" placeholder="username" /><br />
                 <input className="form-control"  type="text" placeholder="password" />
                 <Link to="/signup"><p>New user? Sign up here</p></Link>
-                <button className='form_button'>Login</button>
+                <button  className='btn btn-success rounded p-2 m-2'>Login</button>
                 <p>or</p>
-                <button  className='form_button'>Login with Facebook</button>
+                <button className='btn btn-success rounded p-2 m-2'>Login with Facebook</button>
             </form>
             </div>
         </>
