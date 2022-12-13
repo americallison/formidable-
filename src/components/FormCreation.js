@@ -1,25 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FormPreviewButton from './FormPreviewButton';
+import AddQuestionButton from './AddQuestionButton';
 import MainNav from './MainNav';
 
-export default function FormCreation () {
+
+const questions = [
+    {
+        label: "Radio",
+        value: "radio",
+    },
+
+    {
+        label: "Multiple Choice",
+        value: "multiple choice",
+    },
+
+    {
+        label: "Open Ended (short)",
+        value: "open ended short",
+    },
+
+    {
+        label: "Open Ended (long)",
+        value: "open ended long",
+    }
+
+
+]
+
+export default function FormCreation() {
+    const [question, setQuestion] = useState("radio")
+
+    function handleChange(e) {
+        setQuestion(e.target.value)
+    }
+
     return (
         <>
-        <MainNav />
-            <h1>Formidable Form Creator</h1>
+            <MainNav />
+            <h1 className="h1">Formidable Form Creator</h1>
             <input type="text" placeholder="Form Title" /><br />
             <input type="text" placeholder="Form Description" />
             <form>
-                <select>
-                    <option>Select question type</option>
-                    <option>Open-ended (short)</option>
-                    <option>Checkbox</option>
-                    <option>Open-ended (short)</option>
-                    <option>Open-ended (long)</option>
-                    <option>Multiple choice</option>
-                </select>
+                <select name="questions" id="questions" value={question} onChange={handleChange}>
+                    {questions.map((question) => (
+                        <option value={question.value}>{question.label}</option>
+                    ))}
+                </select><br />
+                <AddQuestionButton /><br />
+                <FormPreviewButton />
+                <button>Submit Form</button>
             </form>
-            <button>Preview Form</button>
-            <button>Submit Form</button>
+         <p className="text-danger">{question}</p>
+
+         
         </>
     )
 }

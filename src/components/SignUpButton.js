@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default function SignUpButton() {
     return (
         <>
-        <div className=''>
-            <Link to="/signup"><button>Sign Up</button></Link>
+        <div>
+            <Link to="/signup"><button  className='btn rounded bg-white text-dark text-end'>Sign Up</button></Link>
         </div>
         </>
     )

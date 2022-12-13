@@ -4,11 +4,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import App from "./App";
 import Login from "./components/auth/Login";
 import FormCreation from "./components/FormCreation";
 import Pricing from "./components/Pricing";
+import SignUp from "./components/auth/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 
   {
