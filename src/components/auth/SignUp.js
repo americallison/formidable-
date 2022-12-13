@@ -6,7 +6,7 @@ export default function SignUp () {
         <>
         <MainNav />
         <div className='signup'>
-        <h1 className=''>Sign Up</h1>
+        <h3 className='h3'>Sign Up</h3>
         <form>
             <input type="text" placeholder='first name' /><br />
             <input type="text" placeholder='last name' /> <br />
