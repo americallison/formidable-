@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default function OpenEndedLong()  {
+
     return (
         <>
-           <p>go</p>
+           <div>
+            <input type="text" placeholder="Question title" />
+           </div>
         </>
     )
 }

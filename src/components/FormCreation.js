@@ -2,36 +2,57 @@ import React, { useState } from 'react';
 import AddQuestionButton from './AddQuestionButton';
 import FormSubmitButton from './FormSubmitButton';
 import MainNav from './MainNav';
+import OpenEndedLong from './questions/OpenEndedLong';
+import OpenEndedShort from './questions/OpenEndedShort';
+import Radio from './questions/Radio';
+import Checkbox from './questions/Checkbox';
+import MultipleChoices from './questions/MultipleChoices';
 
 
 const questions = [
     {
         label: "Radio",
         value: "radio",
+        name: "radioName",
     },
 
     {
         label: "Multiple Choice",
         value: "multiple choice",
+        name: "multipleChoiceName",
     },
 
     {
         label: "Open Ended (short)",
         value: "open ended short",
+        name: "openEndedShortName",
     },
 
     {
         label: "Open Ended (long)",
         value: "open ended long",
+        name: "openEndedLongName",
+    },
+
+    {
+        label: "Checkbox",
+        value: "checkbox",
+        name: "checkboxName",
     }
 
-
 ]
+
+const isSelected = {
+    isActive: true,
+    name: "openEndedShortName",
+}
 
 export default function FormCreation() {
     const [formTitle, setFormTitle] = useState('Untitled');
     const [formDescription, setFormDescription] = useState(' ')
     const [question, setQuestion] = useState("radio")
+ 
+
 
     return (
         <>
@@ -50,9 +71,18 @@ export default function FormCreation() {
                         <option value={question.value}>{question.label}</option>
                     ))}
                 </select><br />
+                <div>
+                    {
+                    isSelected.isActive && isSelected.name === "openEndedShortName" ? (<OpenEndedShort />): isSelected.isActive && isSelected.name === "radioName" ? (<Radio />):
+                     isSelected.isActive && isSelected.name === "openEndedLongName" ? (<OpenEndedLong />): isSelected.isActive && isSelected.name === "checkboxName" ? (<Checkbox />): (<MultipleChoices />)
+                     }
+                </div>
                 <AddQuestionButton />
                 <FormSubmitButton />
             </form>
+            <div>
+            
+    
          <p className="text-danger">{question}</p>
          <p className="text-danger">Form Title: {formTitle}</p>
          <p className="text-danger">Form Description: {formDescription}</p>
@@ -60,7 +90,7 @@ export default function FormCreation() {
          <div className='col-md-3'></div>
          </div>
          </div>
-         
+         </div>
         </>
     )
 }
