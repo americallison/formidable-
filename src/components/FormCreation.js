@@ -42,17 +42,25 @@ const questions = [
 
 ]
 
-const isSelected = {
-    isActive: true,
-    name: "openEndedShortName",
-}
+
+
 
 export default function FormCreation() {
     const [formTitle, setFormTitle] = useState('Untitled');
     const [formDescription, setFormDescription] = useState(' ')
     const [question, setQuestion] = useState("radio")
+    const [isSelected, setIsSelected] = useState({
+        isActive: true,
+        name: "openEndedLongName"
+    })
  
-
+    function handleActive (e) {
+        e.preventDefault();
+        setIsActive({
+         active: true,
+         name: e.target.id
+        })
+   } 
 
     return (
         <>
@@ -63,12 +71,12 @@ export default function FormCreation() {
                 <div className='col-md-3'></div>
                 <div className='col-md-6 shadow-sm p-4 rounded'>
                 <form className=''>
-                 <input className="form-control" type="text" placeholder="Form Title" onChange={(e) => setFormTitle(e.target.value)} /><br />
-                 <textarea className="form-control" placeholder="Form Description" onChange={(e) => setFormDescription(e.target.value)}  /><br />
+                 <input className="form-control border-none" type="text" placeholder="Form Title" onChange={(e) => setFormTitle(e.target.value)} /><br />
+                 <textarea className="form-control" placeholder="Form Description" onChange={(e) => setFormDescription(e.target.value)} /><br />
               <p>Select Question Type</p>
                 <select className="form-control" name="questions" id="questions" value={question} onChange={(e) => setQuestion(e.target.value)} >
                     {questions.map((question) => (
-                        <option value={question.value}>{question.label}</option>
+                        <option name={question.name} id={question.name} value={question.value}>{question.label}</option>
                     ))}
                 </select><br />
                 <div>

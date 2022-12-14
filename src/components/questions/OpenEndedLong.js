@@ -6,6 +6,7 @@ export default function OpenEndedLong()  {
         <>
            <div>
             <input type="text" placeholder="Question title" />
+            <textarea placeholder="Enter Answer" />
            </div>
         </>
     )

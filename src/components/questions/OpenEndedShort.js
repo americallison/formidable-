@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export default function OpenEndedShort({isActive, setIsActive}) {
+export default function OpenEndedShort() {
     const [questionOpen, setQuestionOpen] = useState('')
     const [answerOpen, setAnswerOpen] = useState('')
 
