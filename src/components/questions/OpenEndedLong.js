@@ -4,9 +4,9 @@ export default function OpenEndedLong()  {
 
     return (
         <>
-           <div>
-            <input type="text" placeholder="Question title" />
-            <textarea placeholder="Enter Answer" />
+           <div className="shadow-sm container p-4 rounded">
+            <input className="form-control" type="text" placeholder="Question title" /><br />
+            <textarea className="form-control" placeholder="Enter Answer" />
            </div>
         </>
     )

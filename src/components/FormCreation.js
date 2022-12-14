@@ -51,15 +51,18 @@ export default function FormCreation() {
     const [question, setQuestion] = useState("radio")
     const [isSelected, setIsSelected] = useState({
         isActive: true,
-        name: "openEndedLongName"
+        name: "radioName",
     })
  
     function handleActive (e) {
         e.preventDefault();
-        setIsActive({
-         active: true,
-         name: e.target.id
+        console.log("value", e.target)
+        setIsSelected({
+         isActive: true,
+         name: e.target.value
         })
+
+        setQuestion(e.target.value)
    } 
 
     return (
@@ -74,14 +77,14 @@ export default function FormCreation() {
                  <input className="form-control border-none" type="text" placeholder="Form Title" onChange={(e) => setFormTitle(e.target.value)} /><br />
                  <textarea className="form-control" placeholder="Form Description" onChange={(e) => setFormDescription(e.target.value)} /><br />
               <p>Select Question Type</p>
-                <select className="form-control" name="questions" id="questions" value={question} onChange={(e) => setQuestion(e.target.value)} >
-                    {questions.map((question) => (
-                        <option name={question.name} id={question.name} value={question.value}>{question.label}</option>
+                <select className="form-control" id={question.name} value={question} onChange={handleActive} >
+                    {questions.map((ques) => (
+                        <option key={ques.label} value={ques.name}>{ques.label}</option>
                     ))}
                 </select><br />
-                <div>
+                <div className="mb-3 bg-light">
                     {
-                    isSelected.isActive && isSelected.name === "openEndedShortName" ? (<OpenEndedShort />): isSelected.isActive && isSelected.name === "radioName" ? (<Radio />):
+                    isSelected.isActive && isSelected.name === "openEndedShortName" ? (<OpenEndedShort />): isSelected.isActive && isSelected.name === "Radio" ? (<Radio />):
                      isSelected.isActive && isSelected.name === "openEndedLongName" ? (<OpenEndedLong />): isSelected.isActive && isSelected.name === "checkboxName" ? (<Checkbox />): (<MultipleChoices />)
                      }
                 </div>

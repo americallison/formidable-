@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 
-export default function OpenEndedShort() {
+export default function OpenEndedShort({isSelected, setIsSelected}) {
     const [questionOpen, setQuestionOpen] = useState('')
     const [answerOpen, setAnswerOpen] = useState('')
 
     return (
-           <div id="open_short" className='container shadow-sm'>
-                <input type="text" placeholder="Question"/>
-                <input type="text" placeholoder="Type Answer"/>
+        <div className="shadow-sm container p-4 rounded">
+                <input type="text" className="mb-4 form-control" placeholder="Question" />
+                <input type="text" className="mb-1 form-control" placeholder="Question" />
+                
            </div>
     )
 }

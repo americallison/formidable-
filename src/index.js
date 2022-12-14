@@ -11,6 +11,7 @@ import FormCreation from "./components/FormCreation";
 import Pricing from "./components/Pricing";
 import SignUp from "./components/auth/SignUp";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
     path: "/pricing",
     element: <Pricing />,
   },
+
+
 
 ]);
 
