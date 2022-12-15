@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link
- } from 'react-router-dom';
-export default function AddQuestionButton () {
+
+
+export default function AddQuestionButton ({questionAll, handleAdd}) {
+
+    function handleAdd(e) {
+        e.preventDefault();
+        questionAll.push("This is my question")
+    }
+
     return (
         <>
-            <Link to="/questions"><button className='btn rounded bg-dark text-white p-2 m-2'>Add Item</button></Link>
+            <button className='btn rounded bg-dark text-white p-2 m-2' onClick={handleAdd}>Add Item</button>
         </>
     )
 }

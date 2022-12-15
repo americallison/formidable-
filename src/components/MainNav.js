@@ -8,24 +8,21 @@ export default function MainNav() {
     return (
         <>
         <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="container">
+    <div class="container-fluid container-lg">
     <Link to="/" class="navbar-brand"><h3 className="text-white h3">Formidable</h3></Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    
+    </button>   
+    <div className="flex flex-row">
       <ul class="navbar-nav me-auto justify-contents-center text-end mb-2 mb-lg-0">
-
-
-        
-        <li class="nav-item">
+        <li class="nav-item justify-content-end">
           <Link to="/login" className="nav-link"><LoginButton /></Link>
         </li>
         <li class="nav-item">
-          <Link to="/signup" className="nav-link"><SignUpButton /></Link>
+          <Link to="/signup" className="nav-link justify-content-end"><SignUpButton /></Link>
         </li>
       </ul>
-      
+      </div>
     </div>
 
  

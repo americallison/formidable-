@@ -7,7 +7,11 @@ import OpenEndedShort from './questions/OpenEndedShort';
 import Radio from './questions/Radio';
 import Checkbox from './questions/Checkbox';
 import MultipleChoices from './questions/MultipleChoices';
+import FormPreview from './FormPreview';
+import Questions from './Questions';
 
+
+const QuestionsAll = []
 
 const questions = [
     {
@@ -47,7 +51,7 @@ const questions = [
 
 export default function FormCreation() {
     const [formTitle, setFormTitle] = useState('Untitled');
-    const [formDescription, setFormDescription] = useState(' ')
+    const [formDescription, setFormDescription] = useState()
     const [question, setQuestion] = useState("radio")
     const [isSelected, setIsSelected] = useState({
         isActive: true,
@@ -64,6 +68,8 @@ export default function FormCreation() {
 
         setQuestion(e.target.value)
    } 
+
+
 
     return (
         <>
@@ -88,16 +94,20 @@ export default function FormCreation() {
                      isSelected.isActive && isSelected.name === "openEndedLongName" ? (<OpenEndedLong />): isSelected.isActive && isSelected.name === "checkboxName" ? (<Checkbox />): (<MultipleChoices />)
                      }
                 </div>
-                <AddQuestionButton />
+                <AddQuestionButton questionAll={QuestionsAll} handleAdd={handleAdd}/>
                 <FormSubmitButton />
             </form>
-            <div>
-            
-    
-         <p className="text-danger">{question}</p>
-         <p className="text-danger">Form Title: {formTitle}</p>
-         <p className="text-danger">Form Description: {formDescription}</p>
+            <div><hr />
          </div>
+
+         {
+            formTitle === "Untitled" || formTitle.length < 1 ? <p>From preview will appear here</p> : <FormPreview formTitle={formTitle} formDescription={formDescription}/> 
+         }
+
+         <div>
+            <Questions questionsAll={QuestionsAll} />
+         </div>
+        
          <div className='col-md-3'></div>
          </div>
          </div>
