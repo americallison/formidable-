@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 
 export default function AddQuestionButton ({questionAll, handleAdd}) {
 
+    
+    
     function handleAdd(e) {
         e.preventDefault();
         questionAll.push("This is my question")
+        alert ("Question added")
     }
 
     return (
