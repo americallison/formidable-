@@ -44,8 +44,7 @@ const questions = [
 
 ]
 
-
-export default function FormCreation({handleAdd}) {
+export default function FormCreation({ handleAdd }) {
     const [questionsArray, setQuestionArray] = useState([]);
     const [formTitle, setFormTitle] = useState('Untitled');
     const [formDescription, setFormDescription] = useState()
@@ -55,64 +54,59 @@ export default function FormCreation({handleAdd}) {
         name: "radioName",
     })
 
- 
-    function handleActive (e) {
+
+    function handleActive(e) {
         e.preventDefault();
         console.log("value", e.target)
         setIsSelected({
-         isActive: true,
-         name: e.target.value
+            isActive: true,
+            name: e.target.value
         })
 
         setQuestion(e.target.value)
-   } 
-
-   
-
-
-   
+    }
 
     return (
         <>
             <MainNav />
             <div className='container mt-5 p-2'>
-            <h1 className="h1 display-5 text-center">Formidable Form Creator</h1><hr />
-            <div className="row">
-                <div className='col-md-6 p-4 rounded'>
-                <form className=''>
-                 <input className="form-control border-none" type="text" placeholder="Form Title" onChange={(e) => setFormTitle(e.target.value)} /><br />
-                 <textarea className="form-control" placeholder="Form Description" onChange={(e) => setFormDescription(e.target.value)} /><br />
-              <p>Select Question Type</p>
-                <select className="form-control" id={question.name} value={question} onChange={handleActive} >
-                    {questions.map((ques) => (
-                        <option key={ques.label} value={ques.name}>{ques.label}</option>
-                    ))}
-                </select><br />
-                <div className="mb-3 bg-light">
-                    {
-                    isSelected.isActive && isSelected.name === "openEndedShortName" ? (<OpenEndedShort />): isSelected.isActive && isSelected.name === "Radio" ? (<Radio />):
-                     isSelected.isActive && isSelected.name === "openEndedLongName" ? (<OpenEndedLong />): isSelected.isActive && isSelected.name === "checkboxName" ? (<Checkbox />): (<MultipleChoices />)
-                     }
-                </div>
-                <AddQuestionButton questionAll={questionsArray} handleAdd={handleAdd} setQuestionsArray={setQuestionArray} />
-                <FormSubmitButton />
-            </form>
-        
-        </div>
-         <div className='col-md-6'> 
-         <div>
-         {
-            formTitle === "Untitled" || formTitle.length < 1 ? <p className="text-center">From preview will appear here</p> : <FormPreview formTitle={formTitle} formDescription={formDescription}/> 
-         }
-        </div>
+                <h1 className="h1 display-5 text-center">Formidable Form Creator</h1><hr />
+                <div className="row">
+                    <div className='col-md-6 p-4 rounded'>
+                        <form className=''>
+                            <input className="form-control border-none" type="text" placeholder="Form Title" onChange={(e) => setFormTitle(e.target.value)} /><br />
+                            <textarea className="form-control" placeholder="Form Description" onChange={(e) => setFormDescription(e.target.value)} /><br />
+                            <p>Select Question Type</p>
+                            <select className="form-control" id={question.name} value={question} onChange={handleActive} >
+                                {questions.map((ques) => (
+                                    <option key={ques.label} value={ques.name}>{ques.label}</option>
+                                ))}
+                            </select><br />
+                            <div className="mb-3 bg-light">
+                                {
+                                    isSelected.isActive && isSelected.name === "openEndedShortName" ? (<OpenEndedShort />) : isSelected.isActive && isSelected.name === "Radio" ? (<Radio />) :
+                                        isSelected.isActive && isSelected.name === "openEndedLongName" ? (<OpenEndedLong />) : isSelected.isActive && isSelected.name === "checkboxName" ? (<Checkbox />) : (<MultipleChoices />)
+                                }
+                            </div>
+                            <AddQuestionButton questionAll={questionsArray} handleAdd={handleAdd} setQuestionsArray={setQuestionArray} />
+                            <FormSubmitButton />
+                        </form>
 
-         <div>
-            <Questions questionsAll={questionsArray} />
-         </div>
-         </div>
-         </div>
-         </div>
-        
+                    </div>
+                    <div className='col-md-6'>
+                        <div>
+                            {
+                                formTitle === "Untitled" || formTitle.length < 1 ? <p className="text-center">From preview will appear here</p> : <FormPreview formTitle={formTitle} formDescription={formDescription} />
+                            }
+                        </div>
+
+                        <div>
+                            <Questions questionsAll={questionsArray} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </>
     )
 }

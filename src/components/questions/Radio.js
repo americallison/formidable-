@@ -1,5 +1,15 @@
 import React from 'react';
-import { Option } from './Checkbox'
+
+
+function Option() {
+    return (
+        <>
+            <div className=''>
+                <input className="p-2 form-control" type="text" placeholder="Option1; Option2; Option3;..." />
+            </div>
+        </>
+    )
+}
 
 
 export default function Radio()  {

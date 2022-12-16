@@ -6,8 +6,8 @@ export default function OpenEndedShort({isSelected, setIsSelected}) {
 
     return (
         <div className="shadow-sm container p-4 rounded">
-                <input type="text" className="mb-4 form-control" placeholder="Question" />
-                <input type="text" className="mb-1 disabled form-control" placeholder="Answer" />
+                <input type="text" className="mb-4 form-control" required placeholder="Question" />
+                <input type="text" className="mb-1 form-control" disabled placeholder="Answer" />
            </div>
     )
 }
