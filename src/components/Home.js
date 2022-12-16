@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import pic from '/workspace/formidable-/src/images/formidable.jpg'
+import pic from '../images/formidable.jpg'
 
 export default function Home () {
     return (
