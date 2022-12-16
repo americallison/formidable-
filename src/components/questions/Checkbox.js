@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
 function Option() {
-    const [option, setOption] = useState("Option 1")
+    const [option, setOption] = useState([])
 
     return (
         <>
             <div className=''>
-                <label><input type="text" placeholder={option} /></label>
+            <input className="p-2 form-control" type="text" placeholder="Option1; Option2; Option3" />
             </div>
         </>
     )

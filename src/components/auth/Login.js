@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainNav from '../MainNav';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignIn } from '@fortawesome/free-solid-svg-icons'
 
 export default function Login() {
     return (
@@ -11,7 +13,9 @@ export default function Login() {
                 <div className='row'>
                     <div className='col-md-4'></div>
                     <div className='col-md-4 bg-light shadow-sm rounded p-5'>
-                    <h2 className='h2 text-center'>Login</h2><hr />
+                    <h4 className='h4 text-center'>
+                        
+                        <FontAwesomeIcon icon={faSignIn} />&nbsp;Login</h4><hr />
             <form>
                 <input className="form-control" type="text" placeholder="username" /><br />
                 <input className="form-control mb-4" type="text" placeholder="password" />
